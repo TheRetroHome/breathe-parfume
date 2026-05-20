@@ -345,6 +345,16 @@ class ProductSeeder extends Seeder
 
             $product = Product::create($data);
 
+            if (!empty($data['main_image'])) {
+                DB::table('product_images')->insert([
+                    'product_id' => $product->id,
+                    'image'      => $data['main_image'],
+                    'sort_order' => 0,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+
             $noteInserts = collect($notes)
                 ->filter(fn($slug) => isset($notesMap[$slug]))
                 ->map(fn($slug) => [
