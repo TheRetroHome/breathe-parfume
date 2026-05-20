@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-dark-950 text-dark-100 font-body antialiased;
+        background-image:
+            radial-gradient(ellipse at 20% 20%, rgba(212, 149, 23, 0.03) 0%, transparent 60%),
+            radial-gradient(ellipse at 80% 80%, rgba(131, 111, 217, 0.03) 0%, transparent 60%);
+    }
+
+    h1, h2, h3, h4 {
+        @apply font-sans;
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0a0a07;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #414138;
+        border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #d49517;
+    }
+
+    ::selection {
+        background-color: rgba(212, 149, 23, 0.3);
+        color: #fdf9eb;
+    }
+}
+
+@layer components {
+    .btn-gold {
+        @apply inline-flex items-center justify-center gap-2 px-8 py-3
+               bg-gold-500 text-dark-950 font-body font-semibold text-sm tracking-wider
+               uppercase transition-all duration-300
+               hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25
+               focus:outline-none focus:ring-2 focus:ring-gold-400/50;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 px-8 py-3
+               border border-dark-600 text-dark-200 font-body font-medium text-sm
+               tracking-wider uppercase transition-all duration-300
+               hover:border-gold-500 hover:text-gold-400
+               focus:outline-none focus:ring-2 focus:ring-gold-400/30;
+    }
+
+    .btn-ghost {
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2
+               text-dark-300 text-sm transition-all duration-200
+               hover:text-gold-400 focus:outline-none;
+    }
+
+    .card-product {
+        @apply relative bg-dark-900 border border-dark-800 overflow-hidden
+               transition-all duration-500
+               hover:border-gold-500/30 hover:shadow-xl hover:shadow-gold-500/10
+               hover:-translate-y-1;
+    }
+
+    .input-dark {
+        @apply w-full bg-dark-900 border border-dark-700 text-dark-100
+               px-4 py-3 text-sm font-body
+               focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/30
+               placeholder:text-dark-500 transition-colors duration-200;
+    }
+
+    .label-dark {
+        @apply block text-xs font-body font-medium text-dark-400 uppercase tracking-widest mb-2;
+    }
+
+    .section-title {
+        @apply text-4xl md:text-5xl font-sans text-dark-50 leading-tight;
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    .section-subtitle {
+        @apply text-sm font-body text-gold-500 tracking-[0.25em] uppercase;
+    }
+
+    .badge-new {
+        @apply absolute top-3 right-3 px-2 py-1 bg-emerald-600 text-white text-xs
+               font-body font-semibold uppercase tracking-wider z-10;
+    }
+
+    .badge-sale {
+        @apply absolute top-3 left-3 px-2 py-1 bg-burgundy-600 text-white text-xs
+               font-body font-semibold uppercase tracking-wider z-10;
+    }
+
+    .nav-link {
+        @apply text-sm font-body text-dark-300 tracking-wider uppercase
+               transition-colors duration-200 hover:text-gold-400;
+    }
+
+    .star-rating {
+        @apply flex items-center gap-0.5 text-gold-400;
+    }
+
+    .note-pill {
+        @apply inline-flex items-center gap-1 px-3 py-1.5 bg-dark-800 border border-dark-700
+               text-dark-300 text-xs font-body rounded-full transition-colors duration-200
+               hover:border-gold-500/40 hover:text-gold-400;
+    }
+
+    .glass-card {
+        @apply bg-dark-900/60 backdrop-blur-md border border-dark-700/50;
+    }
+
+    .gradient-gold {
+        background: linear-gradient(135deg, #d49517, #efc84d, #b07211);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .divider-gold {
+        @apply border-t border-gold-500/20;
+    }
+
+    .overlay-dark {
+        background: linear-gradient(to top, rgba(10,10,7,0.95) 0%, rgba(10,10,7,0.5) 60%, transparent 100%);
+    }
+
+    .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
